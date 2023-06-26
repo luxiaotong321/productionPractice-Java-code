@@ -1,0 +1,41 @@
+server:
+  port: 8080
+Spring:
+  # ?????
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/keshe?useUniCode=true&characterEcoding=UTF-8
+    username: root
+    hikari:
+      # ????
+      pool-name: DateHikariCP
+      # ???????
+      minimum-idle: 5
+      # ?????????????600000?10???
+      idle-timeout: 180000
+      # ?????
+      maximum-pool-size: 10
+      # ????
+      auto-commit: true
+      # ?????????30000
+      connection-timeout: 30000
+      # ?????????????
+      connection-test-query: SELECT 1
+
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: cn.edu.dlpulyt.keshe.pojo
+
+  configuration:
+    map-underscore-to-camel-case: true
+  type-handlers-package: cn.edu.dlpulyt.keshe.pojo.handler
+Logging:
+  level:
+    cn.edu.dlpulyt.keshe.mapper: debug
+
+qiNiu:
+  accessKey: 'ZiKXZe9jeSeyXgF-vdpKFCDrelNIyCJIw64T5YK6'
+  secretKey: 'DqImFSbPRgOJ22ssyjkHnn-ZSfTc0HKC5cxNJmst'
+  bucket: 'sxx-match-helper'
+
